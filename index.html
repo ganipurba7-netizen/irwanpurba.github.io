@@ -1,0 +1,407 @@
+import React, { useState } from 'react';
+import { 
+  User, 
+  Briefcase, 
+  GraduationCap, 
+  Mail, 
+  MapPin, 
+  Award, 
+  CheckCircle2, 
+  ExternalLink, 
+  ChevronRight,
+  Menu,
+  X,
+  Phone,
+  Linkedin,
+  MessageCircle
+} from 'lucide-react';
+
+const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const sections = [
+    { id: 'home', label: 'Beranda', icon: <User size={18} /> },
+    { id: 'experience', label: 'Pengalaman', icon: <Briefcase size={18} /> },
+    { id: 'skills', label: 'Keahlian', icon: <Award size={18} /> },
+    { id: 'education', label: 'Pendidikan', icon: <GraduationCap size={18} /> },
+  ];
+
+  const experiences = [
+    {
+      role: "Customer Service Team Lead",
+      company: "PT. Visionet Data Internasional",
+      period: "Mei 2020 – Feb 2026",
+      desc: [
+        "Memimpin tim inbound dan eskalasi layanan pelanggan.",
+        "Memantau kinerja tim dan pencapaian KPI.",
+        "Menangani keluhan pelanggan yang kompleks dan resolusi kasus.",
+        "Berkoordinasi dengan departemen internal untuk resolusi masalah.",
+        "Memastikan kepatuhan Service Level Agreement (SLA).",
+        "Melakukan coaching tim dan evaluasi performa."
+      ]
+    },
+    {
+      role: "General Affairs",
+      company: "QRIM Express",
+      period: "Okt 2018 – 2020",
+      desc: [
+        "Mengelola kebutuhan operasional kantor dan proses pengadaan.",
+        "Mengoordinasikan negosiasi vendor dan manajemen pemasok.",
+        "Mendukung persyaratan operasional logistik.",
+        "Memelihara kontrol aset dan inventaris."
+      ]
+    },
+    {
+      role: "Outbond & Desk Collection",
+      company: "PT BNI Life Insurance",
+      period: "Sep 2017 – 2018",
+      desc: [
+        "Melakukan verifikasi pelanggan untuk aplikasi asuransi.",
+        "Memastikan kepatuhan terhadap standar verifikasi perusahaan.",
+        "Menjaga akurasi dan integritas data."
+      ]
+    },
+    {
+      role: "Senior Customer Service",
+      company: "MatahariMall.com",
+      period: "Okt 2015 – Mei 2017",
+      desc: [
+        "Menangani pertanyaan pelanggan inbound.",
+        "Memberikan dukungan bantuan bagi penjual (seller support).",
+        "Mengelola kasus layanan O2O (online-to-offline).",
+        "Menyelesaikan masalah pesanan, pembayaran, dan pengembalian."
+      ]
+    },
+    {
+      role: "Customer Service",
+      company: "ZALORA Group",
+      period: "Mar 2015 – Jun 2015",
+      desc: [
+        "Menangani pertanyaan pelanggan fashion & lifestyle e-commerce.",
+        "Mengelola penanganan keluhan dan pelacakan pesanan.",
+        "Memberikan keunggulan layanan di lingkungan bervolume tinggi."
+      ]
+    }
+  ];
+
+  const skillGroups = [
+    {
+      title: "Manajemen Tim",
+      skills: ["KPI Monitoring", "Team Coaching", "Performance Evaluation", "Leadership"]
+    },
+    {
+      title: "Operasional",
+      skills: ["SLA Compliance", "Process Improvement", "Inbound Operations", "Resource Planning"]
+    },
+    {
+      title: "Customer Experience",
+      skills: ["Escalation Handling", "Complex Case Resolution", "Complaint Resolution", "Cross-functional Coordination"]
+    },
+    {
+      title: "Industri",
+      skills: ["E-commerce", "Retail", "Logistics", "Insurance"]
+    }
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home':
+        return (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="w-64 h-80 md:w-80 md:h-[450px] rounded-2xl overflow-hidden border-4 border-white shadow-2xl flex-shrink-0 bg-slate-200">
+                <img 
+                  src="WhatsApp Image 2025-05-12 at 17.30.39.JPEG" 
+                  alt="Irwan Arif Gani Purba Profesional"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center md:text-left flex-1">
+                <div className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-4 uppercase tracking-widest">
+                  Tersedia untuk Peluang Baru
+                </div>
+                <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-2">Irwan Arif Gani Purba</h1>
+                <p className="text-xl md:text-2xl text-blue-600 font-medium mb-6">Customer Service Team Leader | E-Commerce & Retail Specialist</p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mb-8">
+                   <p className="text-slate-600 leading-relaxed italic">
+                    "Seorang profesional Customer Service dengan pengalaman lebih dari 10 tahun. Saya berdedikasi tinggi dalam membangun tim yang efisien, meningkatkan standar layanan, dan memberikan kontribusi nyata bagi pertumbuhan bisnis melalui pengalaman pelanggan yang luar biasa."
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                  <div className="flex items-center gap-2 text-slate-500 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
+                    <MapPin size={16} className="text-blue-500" />
+                    <span className="font-medium">DKI Jakarta</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-500 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
+                    <Award size={16} className="text-blue-500" />
+                    <span className="font-medium">10+ Thn Pengalaman</span>
+                  </div>
+                  <a href="tel:08568143935" className="flex items-center gap-2 text-slate-500 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">
+                    <Phone size={16} className="text-blue-500" />
+                    <span className="font-medium">0856 8143 935</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
+                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                  <CheckCircle2 size={28} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-slate-800">Resolusi Konflik</h3>
+                <p className="text-slate-500 leading-relaxed">Ahli dalam manajemen eskalasi dan penanganan keluhan kompleks untuk memastikan retensi pelanggan.</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-green-200 hover:shadow-xl hover:shadow-green-500/5 transition-all duration-300">
+                <div className="w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6">
+                  <Briefcase size={28} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-slate-800">Manajemen KPI</h3>
+                <p className="text-slate-500 leading-relaxed">Fokus pada efisiensi operasional dan pencapaian target SLA yang ketat di berbagai industri.</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-500/5 transition-all duration-300">
+                <div className="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                  <User size={28} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-slate-800">Kepemimpinan Tim</h3>
+                <p className="text-slate-500 leading-relaxed">Membimbing tim CS untuk mencapai potensi maksimal melalui coaching dan feedback berkelanjutan.</p>
+              </div>
+            </div>
+          </div>
+        );
+      case 'experience':
+        return (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 space-y-8">
+            <h2 className="text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4 mb-8">Riwayat Karier</h2>
+            <div className="relative border-l-2 border-slate-200 ml-4 space-y-12">
+              {experiences.map((exp, idx) => (
+                <div key={idx} className="relative pl-10">
+                  <div className="absolute -left-[11px] top-1 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+                  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                      <div>
+                        <h3 className="text-2xl font-bold text-slate-800">{exp.role}</h3>
+                        <p className="text-blue-600 font-bold text-lg">{exp.company}</p>
+                      </div>
+                      <span className="text-sm font-bold bg-blue-600 text-white px-4 py-1.5 rounded-full mt-3 md:mt-0 self-start shadow-md shadow-blue-200">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {exp.desc.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-slate-600">
+                          <CheckCircle2 size={18} className="mt-1 flex-shrink-0 text-blue-500" />
+                          <span className="text-sm md:text-base leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'skills':
+        return (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h2 className="text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4 mb-8">Kompetensi Strategis</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {skillGroups.map((group, idx) => (
+                <div key={idx} className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300">
+                  <h3 className="text-xl font-bold text-slate-800 mb-8 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                      <Award size={22} />
+                    </div>
+                    {group.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {group.skills.map((skill, i) => (
+                      <span key={i} className="bg-slate-50 text-slate-700 px-5 py-3 rounded-2xl text-sm border border-slate-200 font-bold hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 cursor-default shadow-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 bg-gradient-to-br from-blue-600 to-indigo-700 p-12 rounded-[40px] text-white shadow-2xl shadow-blue-200 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+               <div className="relative z-10">
+                <h3 className="text-3xl font-bold mb-4 italic">Siap Membawa Tim Anda ke Level Selanjutnya?</h3>
+                <p className="text-blue-100 text-lg mb-8 max-w-2xl leading-relaxed">Mari berdiskusi bagaimana pengalaman operasional dan kepemimpinan saya dapat memberikan nilai tambah bagi perusahaan Anda.</p>
+                <button 
+                  onClick={() => setActiveTab('home')}
+                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-black/10"
+                >
+                  Hubungi Saya
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      case 'education':
+        return (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h2 className="text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4 mb-8">Pendidikan</h2>
+            <div className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100 flex flex-col lg:flex-row gap-12 items-start">
+              <div className="w-24 h-24 bg-blue-50 rounded-3xl flex items-center justify-center flex-shrink-0 text-blue-600 shadow-inner">
+                <GraduationCap size={48} />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-3xl font-bold text-slate-800 mb-2">Bina Sarana Informatika</h3>
+                <p className="text-xl text-blue-600 font-bold mb-6 italic">Ahli Madya (A.Md), Periklanan (Advertising) | 2011 – 2014</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                   <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                     <h4 className="font-bold text-slate-800 mb-2">Keahlian Media Cetak</h4>
+                     <p className="text-slate-600 text-sm">Pembuatan desain poster, brosur, dan banner promosi yang persuasif.</p>
+                   </div>
+                   <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                     <h4 className="font-bold text-slate-800 mb-2">Media Siar & Komunikasi</h4>
+                     <p className="text-slate-600 text-sm">Produksi konten iklan radio dan televisi serta teknik komunikasi massa.</p>
+                   </div>
+                </div>
+
+                <div className="flex flex-wrap gap-4">
+                  <button className="flex items-center gap-2 bg-blue-50 text-blue-700 px-6 py-3 rounded-2xl font-bold hover:bg-blue-100 transition-colors">
+                    <ExternalLink size={18} />
+                    Lihat Ijazah
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] font-sans selection:bg-blue-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100 hidden md:block">
+        <div className="max-w-6xl mx-auto px-8 h-24 flex items-center justify-between">
+          <div className="flex items-center gap-4 cursor-pointer" onClick={() => setActiveTab('home')}>
+            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-200">I</div>
+            <div className="flex flex-col">
+              <span className="font-black text-xl text-slate-900 leading-none">IRWAN ARIF</span>
+              <span className="text-[10px] font-bold text-blue-600 tracking-[0.3em] mt-1 uppercase">Portfolio</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => setActiveTab(section.id)}
+                className={`px-6 py-3 text-sm font-bold rounded-xl transition-all duration-300 flex items-center gap-2 ${
+                  activeTab === section.id 
+                    ? 'bg-white text-blue-600 shadow-sm' 
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                {section.icon}
+                {section.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 px-6 h-20 flex items-center justify-between">
+        <div className="font-black text-xl text-slate-900 tracking-tight">IRWAN ARIF</div>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="w-12 h-12 flex items-center justify-center bg-slate-50 rounded-2xl text-slate-600">
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-40 bg-white animate-in fade-in slide-in-from-top duration-300 p-10 flex flex-col items-center justify-center gap-10">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => {
+                  setActiveTab(section.id);
+                  setIsMenuOpen(false);
+                }}
+                className={`text-3xl font-black uppercase tracking-tighter flex items-center gap-4 ${
+                  activeTab === section.id ? 'text-blue-600' : 'text-slate-300'
+                }`}
+              >
+                {section.label}
+              </button>
+            ))}
+        </div>
+      )}
+
+      <main className="max-w-6xl mx-auto px-6 pt-32 pb-32">
+        {renderContent()}
+      </main>
+
+      <footer className="bg-slate-950 text-white py-32 px-6 rounded-t-[60px] relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -mb-64 -mr-32"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-24">
+            <div>
+              <div className="inline-block bg-blue-600 px-4 py-1 rounded-lg text-xs font-bold uppercase tracking-widest mb-6">Hubungi Saya</div>
+              <h2 className="text-5xl font-black mb-8 leading-tight">Mari Membangun Layanan Unggul Bersama.</h2>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="group">
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Email Profesional</p>
+                  <a href="mailto:gani.purba7@gmail.com" className="text-xl font-bold hover:text-blue-400 transition-colors flex items-center gap-2">
+                    gani.purba7@gmail.com <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </div>
+                <div className="group">
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">WhatsApp & Telepon</p>
+                  <div className="flex flex-col gap-2">
+                    <a href="https://wa.me/628568143935" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-green-400 transition-colors flex items-center gap-2">
+                      0856 8143 935 <MessageCircle size={18} className="text-green-400" />
+                    </a>
+                    <a href="tel:08568143935" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 font-bold uppercase tracking-widest">
+                      Telepon Langsung <Phone size={14} />
+                    </a>
+                  </div>
+                </div>
+                <div className="group lg:col-span-2">
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/irwan-arif-gani-purba-006a91111" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-blue-400 transition-colors flex items-center gap-2">
+                    Irwan Purba <Linkedin size={18} className="text-blue-400" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-md p-10 rounded-[40px] border border-white/10">
+              <h3 className="text-2xl font-bold mb-8">Kirim Pesan Langsung</h3>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="space-y-2">
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-slate-600" placeholder="Nama Anda" />
+                </div>
+                <div className="space-y-2">
+                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-slate-600" placeholder="Email Anda" />
+                </div>
+                <div className="space-y-2">
+                  <textarea className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none placeholder:text-slate-600" placeholder="Pesan Anda..."></textarea>
+                </div>
+                <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest py-5 rounded-2xl transition-all shadow-xl shadow-blue-600/20 active:scale-95">
+                  Kirim Sekarang
+                </button>
+              </form>
+            </div>
+          </div>
+          
+          <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-bold uppercase tracking-widest">
+            <p>© 2024 Irwan Arif Gani Purba. Built for Excellence.</p>
+            <div className="flex gap-8">
+              <span className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors"><MapPin size={12} /> Jakarta, Indonesia</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Portfolio;
